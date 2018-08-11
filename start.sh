@@ -14,7 +14,7 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
 
 echo  "Please, enter your token here:";
-read -p token;
-DOTOKEN=$answer;
+read token;
+DOTOKEN=$token;
 
 docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN docker-sandbox
