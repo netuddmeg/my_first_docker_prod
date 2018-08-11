@@ -8,7 +8,7 @@ export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
 
-DOWNLOAD=$(curl -O -L -C - $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine);
+DOWNLOAD=$(curl -L - $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine);
 
 if [ $? = 1 ] ; then
     echo "There was a problem downloading the script"
