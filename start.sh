@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source conf/vars;
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export DEBIAN_FRONTEND=noninteractive;
 
 sudo -c 'apt-get update -y && apt-get upgrade -y && apt-get install curl -y';
