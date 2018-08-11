@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
