@@ -6,7 +6,8 @@ DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
 DOCKERMACHINE="docker-sandbox"
 
 
-sudo -- sh -c 'apt-get update -y && apt-get upgrade -y && apt-get install curl -y';
+sudo -- sh -c 'apt-get update -y && \
+               apt-get install curl -y';
 
 curl -C - $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
