@@ -13,8 +13,8 @@ curl -C - $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
 
-echo  "Please, enter your token here:";
-read token;
+echo -n  "Please, enter your token here:";
+read -n 1 token;
 DOTOKEN=$token;
 
 docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN docker-sandbox
