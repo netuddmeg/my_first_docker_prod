@@ -7,12 +7,11 @@ DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
 
 sudo -- sh -c 'apt-get update -y && apt-get upgrade -y && apt-get install curl -y';
 
-curl -C -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
+curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
 
-echo -n "Please, enter your token here:";
-read answer
+read -p "Please, enter your token here:";
 DOTOKEN=$answer;
 
 docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN docker-sandbox
