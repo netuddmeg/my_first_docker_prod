@@ -33,10 +33,7 @@ else
 	        read token;
 	        DOTOKEN=$token;
 		clear;
-		docker-machine create --driver digitalocean \
-			--digitalocean-image ubuntu-16-04-5-x64 \
-		       	--digitalocean-access-token $DOTOKEN \
-			$DOCKERMACHINE;
+		docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
                 rm /tmp/docker-machine;
 	fi;
 
