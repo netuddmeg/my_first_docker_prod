@@ -4,7 +4,7 @@ set -x
 source config;
 export DEBIAN_FRONTEND=noninteractive;
 
-apt update -y && apt upgrade -y && apt install curl;
+apt-get update -y && apt-get upgrade -y && apt-get install curl -y;
 
 DOCKERURL=https://github.com/docker/machine/releases/download/v0.15.0 && \
 curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
