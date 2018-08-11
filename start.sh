@@ -11,8 +11,9 @@ sudo -- sh -c 'apt-get install curl -y';
 curl -L -C - $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
-
+echo "******************************************";
 echo -n "Please, enter your token here [ENTER]: ";
-read token;
+echo "******************************************";
+read -n 1 -s -r -p token;
 
 docker-machine create --driver digitalocean --digitalocean-access-token $token $DOCKERMACHINE;
