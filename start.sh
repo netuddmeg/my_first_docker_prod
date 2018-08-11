@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export DEBIAN_FRONTEND=noninteractive;
 
