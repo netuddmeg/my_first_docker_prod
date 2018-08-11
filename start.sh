@@ -1,7 +1,6 @@
 #!/bin/sh
-set -x
 
-source config;
+source conf/vars;
 export DEBIAN_FRONTEND=noninteractive;
 
 sudo -c 'apt-get update -y && apt-get upgrade -y && apt-get install curl -y';
