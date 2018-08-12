@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
+REPO="https://github.com/netuddmeg/my_first_docker_prod.git"
+PROJECTNAME="my_first_docker_project"
+

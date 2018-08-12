@@ -1,10 +1,8 @@
 #!/bin/bash
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
-REPO="https://github.com/netuddmeg/my_first_docker_prod.git"
-PROJECTNAME="my_first_docker_project"
 
+source vars/config
 export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
