@@ -1,7 +1,5 @@
 #!/bin/bash
 
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
 source vars/config
 export DEBIAN_FRONTEND=noninteractive;
 
@@ -38,10 +36,11 @@ else
 	IPADDR=`docker-machine ip docker-sandbox`;
 	if [ ! -z $IPADDR ]; then
 
-		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git curl -y";
-		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd my_first_docker_prod";
-		docker-machine ssh $DOCKERMACHINE "docker build -t $PROJECTNAME my_first_docker_prod/";
-		docker-machine ssh $DOCKERMACHINE "docker run --rm -p 80:80 -d -t $PROJECTNAME";
+		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
+		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPO";
+                eval $(docker-mashine env $DOCKERMACHINE);
+		docker build -t $PROJECTNAME:latest $REPO/";
+		docker run --rm -p 80:80 -d -t $PROJECTNAME:latest";
 
 	else
 		echo "Cannot find IP address!";
