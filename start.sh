@@ -1,11 +1,16 @@
 #!/bin/bash
 
-source vars/config
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
+REPO="https://github.com/netuddmeg/my_first_docker_prod.git"
+PROJECTNAME="my_first_docker_project"
+
+
 export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
 
-DOWNLOAD=$(sudo curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine);
+DOWNLOAD=$(curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine);
 
 if [ $? != 0 ] ; then
 	echo "There was a problem downloading the script! Check your internet connection!"
