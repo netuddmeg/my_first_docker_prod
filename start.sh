@@ -5,13 +5,11 @@ REPODIR="my_first_docker_prod"
 REPO="https://github.com/netuddmeg/my_first_docker_prod.git"
 PROJECTNAME="my_first_docker_project"
 
-
 export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
 
-curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) > /tmp/docker-machine && \
-	sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
+curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) > /tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
 if [ $? != 0 ] ; then
 	echo "There was a problem downloading the script! Check your internet connection!"
@@ -24,7 +22,7 @@ else
 	VALID=`docker-machine ls|cut -f1 -d " "|tail -1`;
 
 	if [ $DOCKERMACHINE = $VALID ] ; then
-		echo "INVALID machine name, its already exist! Choose another name!"
+		echo "INVALID machine name, its already exist! Choose another name!";
                 exit 1;
         else
 
