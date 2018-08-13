@@ -27,11 +27,11 @@ else
                 exit 1;
         else
 
-		clear;
+#		clear;
         	echo -n "Please, enter your token here [ENTER]: ";
 	        read token;
 	        DOTOKEN=$token;
-		clear;
+#		clear;
 		docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
                 rm /tmp/docker-machine;
 	fi;
