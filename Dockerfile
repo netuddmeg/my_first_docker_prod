@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-RUN apt install curl -y
+RUN apk update && apk add curl
 
 # Installing apache and write Hello world! message
 #COPY ./src/ /usr/share/nginx/html/
