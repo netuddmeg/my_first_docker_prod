@@ -1,7 +1,7 @@
 #!/bin/bash
-
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 DOCKERURL="https://github.com/docker/machine/releases/download/v0.15.0"
+REPODIR="my_first_docker_prod"
 REPO="https://github.com/netuddmeg/my_first_docker_prod.git"
 PROJECTNAME="my_first_docker_project"
 
@@ -10,7 +10,7 @@ export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
 
-curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
+curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) > /tmp/docker-machine && \
 	sudo install /tmp/docker-machine /usr/local/bin/docker-machine;
 
 if [ $? != 0 ] ; then
@@ -41,10 +41,10 @@ else
 	if [ ! -z $IPADDR ]; then
 
 		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
-		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPO";
-                eval $(docker-mashine env $DOCKERMACHINE);
-		docker build -t $PROJECTNAME:latest $REPO/";
-		docker run --rm -p 80:80 -d -t $PROJECTNAME:latest";
+		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPODIR";
+                eval $(docker-machine env $DOCKERMACHINE);
+		docker build -t $PROJECTNAME $REPODIR;
+		docker run --rm -p 80:80 -d -t $PROJECTNAME;
 
 	else
 		echo "Cannot find IP address!";
@@ -55,3 +55,4 @@ else
 
 
 fi;
+
