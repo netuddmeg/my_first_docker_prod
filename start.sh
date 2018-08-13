@@ -43,9 +43,9 @@ else
 		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPODIR";
                 eval $(docker-machine env $DOCKERMACHINE);
 		docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose";
-		docker-machine ssh $DOCKERMACHINE "docker-compose up";
-		docker-machine ssh $DOCKERMACHINE "docker build -t $PROJECTNAME $REPODIR";
-		docker-machine ssh $DOCKERMACHINE "docker run --rm -p 80:$PORTS -d -t $PROJECTNAME";
+		docker-machine ssh $DOCKERMACHINE "docker-compose up --build";
+#		docker-machine ssh $DOCKERMACHINE "docker build -t $PROJECTNAME $REPODIR";
+#		docker-machine ssh $DOCKERMACHINE "docker run --rm -p 80:$PORTS -d -t $PROJECTNAME";
 		echo "---------------------------------------------";
 		echo "Check the result at: ---> http://$IPADDR:$PORTS <---";
 		echo "---------------------------------------------";

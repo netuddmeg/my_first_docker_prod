@@ -1,6 +1,8 @@
 version: "3"
 services:
   web:
-    build: ./my_first_docker_prod/
+    build: .
     ports:
       - "80:80"
+    volumes:
+      - .:/html
