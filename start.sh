@@ -10,12 +10,12 @@ export DEBIAN_FRONTEND=noninteractive;
 
 sudo -- sh -c 'apt-get install curl -y';
 
-curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) > ~/docker-machine && sudo install ~/docker-machine /usr/local/bin/docker-machine;
+#curl -L $DOCKERURL/docker-machine-$(uname -s)-$(uname -m) > ~/docker-machine && sudo install ~/docker-machine /usr/local/bin/docker-machine;
 
-if [ $? != 0 ] ; then
-	echo "There was a problem downloading the script! Check your internet connection!"
-	exit 1;
-else
+#if [ $? != 0 ] ; then
+#	echo "There was a problem downloading the script! Check your internet connection!"
+#	exit 1;
+#else
 #        clear;
         echo -n "Please, enter machine name here [ENTER]: ";
         read machine;
