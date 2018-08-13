@@ -40,10 +40,10 @@ else
 	if [ ! -z $IPADDR ]; then
 
 		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
-		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPODIR";
+		docker-machine ssh $DOCKERMACHINE "git clone $REPO";
                 eval $(docker-machine env $DOCKERMACHINE);
 		docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > ./docker-compose;chmod +x ./docker-compose";
-		docker-machine ssh $DOCKERMACHINE "./docker-compose up --build";
+		docker-machine ssh $DOCKERMACHINE "cd $REPODIR" && ../docker-compose up --build";
 #		docker-machine ssh $DOCKERMACHINE "docker build -t $PROJECTNAME $REPODIR";
 #		docker-machine ssh $DOCKERMACHINE "docker run --rm -p 80:$PORTS -d -t $PROJECTNAME";
 		echo "---------------------------------------------";
