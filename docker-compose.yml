@@ -6,3 +6,8 @@ services:
       - "80:80"
     volumes:
       - ./src:/usr/share/nginx/html
+    healthcheck:
+      test: curl --fail -s http://localhost:80/ || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
