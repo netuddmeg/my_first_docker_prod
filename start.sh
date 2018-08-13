@@ -21,7 +21,7 @@ else
         DOCKERMACHINE=$machine;
 	VALID=`docker-machine ls|cut -f1 -d " "|tail -1`;
 
-	if [ $DOCKERMACHINE = $VALID ] ; then
+	if [ $DOCKERMACHINE = $VALID ]; then
 		echo "INVALID machine name, its already exist! Choose another name!";
                 exit 1;
         else
