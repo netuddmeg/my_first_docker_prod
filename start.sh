@@ -43,8 +43,8 @@ else
 		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
 		docker-machine ssh $DOCKERMACHINE "git clone $REPO && cd $REPODIR";
                 eval $(docker-machine env $DOCKERMACHINE);
-		docker build -t $PROJECTNAME $REPODIR;
-		docker run --rm -p 80:80 -d -t $PROJECTNAME;
+		docker-machine ssh $DOCKERMACHINE "docker build -t $PROJECTNAME $REPODIR";
+		docker-machine ssh $DOCKERMACHINE "docker run --rm -p 80:80 -d -t $PROJECTNAME";
 
 	else
 		echo "Cannot find IP address!";
