@@ -16,7 +16,7 @@ if [ $? != 0 ] ; then
 	echo "There was a problem downloading the script! Check your internet connection!"
 	exit 1;
 else
-        clear;
+#        clear;
         echo -n "Please, enter machine name here [ENTER]: ";
         read machine;
         DOCKERMACHINE=$machine;
