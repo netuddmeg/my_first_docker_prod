@@ -33,7 +33,7 @@ else
 	        DOTOKEN=$token;
 #		clear;
 		docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
-                rm /tmp/docker-machine;
+#                rm /tmp/docker-machine;
 	fi;
 
 	IPADDR=`docker-machine ip docker-sandbox`;
