@@ -4,6 +4,9 @@ FROM node:boron
 # Create a directory in the container where the code will be placed
 RUN mkdir -p /backend-dir-inside-container
 
+# Install nodejs express module with npm
+RUN npm install -g express
+
 # Set this as the default working directory.
 # We'll land here when we SSH into the container.
 WORKDIR /backend-dir-inside-container
