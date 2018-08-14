@@ -58,5 +58,5 @@ sudo -- sh -c 'apt-get install curl -y';
 
 
 
-fi;
+#fi;
 
