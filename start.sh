@@ -8,7 +8,7 @@ PROJECTNAME="my_first_docker_project";
 PORTS="80";
 DPATH=/usr/local/bin/;
 
-export DEBIAN_FRONTEND=noninteractive && sudo apt install curl -y;
+#export DEBIAN_FRONTEND=noninteractive && sudo apt install curl -y;
 
 #if [ ! -f $DM  ] ; then
 #        curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && chmod +x $DPATH/docker-machine;
