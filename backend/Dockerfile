@@ -13,6 +13,7 @@ WORKDIR /backend-dir-inside-container
 
 HEALTHCHECK --interval=5s --timeout=3s CMD curl --fail http://localhost:80 || exit 1
 
+RUN node index.js
 # Our Nginx container will forward HTTP traffic to containers of 
 # this image via port 3000.
 EXPOSE 3000
