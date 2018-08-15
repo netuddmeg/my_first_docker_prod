@@ -20,6 +20,7 @@ export DEBIAN_FRONTEND=noninteractive && sudo apt update && sudo apt install cur
 #		~/docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
 
 		~/docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
+		~/docker-machine ssh $DOCKERMACHINE "curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > ~/docker-machine && chmod +x $DM";
 		~/docker-machine ssh $DOCKERMACHINE "git clone $REPO";
 		eval $(~/docker-machine env $DOCKERMACHINE);
 		~/docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > ~/docker-compose;chmod +x ~/docker-compose";
