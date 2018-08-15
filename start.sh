@@ -24,6 +24,7 @@ fi;
 		~/docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > ~/docker-compose;chmod +x ~/docker-compose";
 		~/docker-machine ssh $DOCKERMACHINE "cd $REPODIR && ~/docker-compose up --build";
 		echo "---------------------------------------------";
+		IPADDR=`$DM ip $DOCKERMACHINE`;
 		echo "Check the result at: ---> http://$IPADDR:$PORTS <---";
 		echo "---------------------------------------------";
 
