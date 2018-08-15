@@ -10,15 +10,14 @@ DM=~/docker-machine;
 
 export DEBIAN_FRONTEND=noninteractive && apt update && apt install curl -y;
 
-if [ ! -f $DM  ] ; then
-        curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > ~/docker-machine && chmod +x $DM;
+#if [ ! -f $DM  ] ; then
+#        curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > ~/docker-machine && chmod +x $DM;
+#fi;
 
-fi;
-
-        	echo -n "Please, enter your token here [ENTER]: ";
-	        read token;
-	        DOTOKEN=$token;
-		~/docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
+#        	echo -n "Please, enter your token here [ENTER]: ";
+#	        read token;
+#	        DOTOKEN=$token;
+#		~/docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
 
 		~/docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
 		~/docker-machine ssh $DOCKERMACHINE "git clone $REPO";
