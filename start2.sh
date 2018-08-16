@@ -1,4 +1,5 @@
-#!/bin/bash -x
+#!/bin/bash
+set -x
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
 DMURL="https://github.com/docker/machine/releases/download/v0.15.0";
 REPODIR="my_first_docker_prod";
