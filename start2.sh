@@ -14,7 +14,7 @@ if [ ! -f "/usr/local/bin/docker-machine"  ] ; then
 fi;
 
 if [ ! -f "/usr/local/bin/docker-compose"  ] ; then
-		sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > $DPATH/docker-compose;sudo chmod +x $DPATH/docker-compose";
+		sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > $DPATH/docker-compose;sudo chmod +x $DPATH/docker-compose;
 fi;
 
 
