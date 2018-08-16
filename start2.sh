@@ -9,7 +9,15 @@ REPO="https://github.com/netuddmeg/my_first_docker_prod.git";
 PROJECTNAME="my_first_docker_project";
 DPATH="/usr/local/bin/";
 
-export DEBIAN_FRONTEND=noninteractive && sudo apt install curl -y;
+export DEBIAN_FRONTEND=noninteractive && sudo apt install \
+	apt-transport-https \
+	ca-certificates \
+	curl \
+	software-properties-common;
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+	sudo apt-get install docker-ce -y;
 
 if [ ! -f "/usr/local/bin/docker-machine"  ] ; then
         sudo curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > /tmp/docker-machine && sudo cp /tmp/docker-machine $DPATH/docker-machine && sudo chmod +x $DPATH/docker-machine;
