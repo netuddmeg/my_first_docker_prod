@@ -13,8 +13,8 @@ if [ ! -f "/usr/local/bin/docker-machine"  ] ; then
         sudo curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && sudo chmod +x $DPATH/docker-machine;
 fi;
 
-        	echo -n "Please, enter your token here [ENTER]: ";
-	        read token;
+#        	echo -n "Please, enter your token here [ENTER]: ";
+#	        read token;
 	        DOTOKEN="4a90749f56a92dcc7f8f77a5690c21e492631386bf440786b742ea5f8f28393e";
 		docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
 
