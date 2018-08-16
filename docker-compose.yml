@@ -4,19 +4,19 @@ services:
       build: ./backend
       tty: true
       volumes:
-        - './backend/src:/var/www/html/'
+        - '/var/www/html/'
 
   backend2:
       build: ./backend
       tty: true
       volumes:
-        - './backend/src:/var/www/html/'
+        - '/var/www/html/'
 
   backend3:
       build: ./backend
       tty: true
       volumes:
-        - './backend/src:/var/www/html/'
+        - '/var/www/html/'
 
   loadbalancer:
       build: ./load-balancer
