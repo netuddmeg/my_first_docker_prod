@@ -26,7 +26,7 @@ fi;
 		docker-machine create --driver digitalocean --digitalocean-access-token $DOTOKEN $DOCKERMACHINE;
 
 		docker-machine ssh $DOCKERMACHINE "export DEBIAN_FRONTEND=noninteractive && sudo apt-get install git -y";
-		docker-machine ssh $DOCKERMACHINE "curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && chmod +x $DPATH/docker-machine";
+#		docker-machine ssh $DOCKERMACHINE "curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && chmod +x $DPATH/docker-machine";
 		eval $(docker-machine env $DOCKERMACHINE);
 
 #		if [ ! -f "/usr/local/bin/docker-compose" ] ; then
