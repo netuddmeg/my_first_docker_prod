@@ -34,6 +34,6 @@ fi;
 #		fi;
 
 		git clone $REPO;
-		cd $REPODIR; docker-compose up --build;
+		cd $REPODIR; git pull; docker-compose up --build;
 
 
