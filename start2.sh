@@ -2,6 +2,7 @@
 set -x
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
 DMURL="https://github.com/docker/machine/releases/download/v0.15.0";
+DCURL="https://github.com/docker/compose/releases/download/1.22.0"
 REPODIR="my_first_docker_prod";
 DOCKERMACHINE="docker-sandbox-swarm";
 REPO="https://github.com/netuddmeg/my_first_docker_prod.git";
@@ -15,7 +16,7 @@ if [ ! -f "/usr/local/bin/docker-machine"  ] ; then
 fi;
 
 if [ ! -f "/usr/local/bin/docker-compose"  ] ; then
-		sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64 > $DPATH/docker-compose;sudo chmod +x $DPATH/docker-compose;
+	sudo curl -L $DCURL/docker-compose-$(uname -s)-$(uname -m) > /tmp/docker-compose && sudo cp /tmp/docker-compose $DPATH/docker-compose && sudo chmod +x $DPATH/docker-compose;
 fi;
 
 
