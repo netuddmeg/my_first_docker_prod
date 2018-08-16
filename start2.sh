@@ -28,9 +28,9 @@ fi;
 		docker-machine ssh $DOCKERMACHINE "curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && chmod +x $DPATH/docker-machine";
 		eval $(docker-machine env $DOCKERMACHINE);
 
-		if [ ! -f "/usr/local/bin/docker-compose" ] ; then
-			docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > $DPATH/docker-compose;sudo chmod +x $DPATH/docker-compose";
-		fi;
+#		if [ ! -f "/usr/local/bin/docker-compose" ] ; then
+#			docker-machine ssh $DOCKERMACHINE "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) > $DPATH/docker-compose;sudo chmod +x $DPATH/docker-compose";
+#		fi;
 
 		git clone $REPO;
 		cd $REPODIR; docker-compose up --build;
