@@ -11,7 +11,7 @@ DPATH="/usr/local/bin/";
 export DEBIAN_FRONTEND=noninteractive && sudo apt install curl -y;
 
 if [ ! -f "/usr/local/bin/docker-machine"  ] ; then
-        sudo curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > $DPATH/docker-machine && sudo chmod +x $DPATH/docker-machine;
+        sudo curl -L $DMURL/docker-machine-$(uname -s)-$(uname -m) > /tmp/docker-machine && cp /tmp/docker-machine $DPATH/docker-machine && sudo chmod +x $DPATH/docker-machine;
 fi;
 
 if [ ! -f "/usr/local/bin/docker-compose"  ] ; then
